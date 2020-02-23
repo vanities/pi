@@ -1,0 +1,7 @@
+pihole/data
+pihole/schemas
+pihole/etc-dnsmasq.d
+pihole/etc-pihole
+
+certs
+

@@ -1,0 +1,9 @@
+
+ufw disable
+yes | ufw reset
+ufw allow 53 # dns tcp/udp
+ufw allow 67/udp # bootstrap
+ufw allow ssh # ssh, remember to use ssh keys
+ufw allow 80/tcp
+ufw allow 443/tcp
+ufw enable

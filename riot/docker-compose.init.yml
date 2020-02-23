@@ -9,5 +9,5 @@ services:
       - ./certs:/etc/letsencrypt
       - ./certs-data:/data/letsencrypt
     ports:
-      - 80:80
-      - 443:443
+      - 8081:80
+      - 4443:443
