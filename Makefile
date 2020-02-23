@@ -33,9 +33,9 @@ shell:
 	 ssh -i $(EC2_PRIVATE_KEY_PATH) $(EC2_URL)
 
 init:
-	sed -e "s/server_name:.*/server_name:$(WEB_URL)/g" riot/nginx.init.config > tmp
+	sed -e "s/server_name:.*/server_name:$(WEB_URL)/g" riot/nginx.init.conf > tmp
 	mv -- tmp riot/nginx.init.conf
-	sed -e "s/server_name:.*/server_name:$(WEB_URL)/g" riot/nginx.config > tmp
+	sed -e "s/server_name:.*/server_name:$(WEB_URL)/g" riot/nginx.conf > tmp
 	mv -- tmp riot/nginx.conf
 	POSTGRES_PASSWORD=$(RIOT_POSTGRES_PASSWORD) \
 	FQDN=$(WEB_URL) \
