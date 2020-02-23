@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  wireguard:
+    container_name: wireguard
+    image: vanities/wireguard-ui
+    ports:
+      - "8080:8080"
+      - "5555:5555"
+    volumes:
+       - "/tmp/wireguard-ui:/data"
+    entrypoint: /wireguard-ui
+    restart: unless-stopped
+
