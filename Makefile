@@ -33,14 +33,14 @@ shell:
 	 ssh -i $(EC2_PRIVATE_KEY_PATH) $(EC2_URL)
 
 init:
+	sed -e "s/server_name:.*/server_name:$(WEB_URL)/g" riot/nginx.init.config > tmp
+	mv -- tmp riot/nginx.init.conf
+	sed -e "s/server_name:.*/server_name:$(WEB_URL)/g" riot/nginx.config > tmp
+	mv -- tmp riot/nginx.conf
 	POSTGRES_PASSWORD=$(RIOT_POSTGRES_PASSWORD) \
 	FQDN=$(WEB_URL) \
-	  $(DOCKER_COMPOSE_INIT) up --detach
+	  $(DOCKER_COMPOSE_INIT) up -d
 	riot/./renew-cert.sh $(WEB_URL)
-	sed -e "s/server_name:.*/server_name:$(WEB_URL)/g" riot/nginx.init.config > tmp
-	mv -- tmp riot/nginx.init.conf/docker-compose.yml
-	sed -e "s/server_name:.*/server_name:$(WEB_URL)/g" riot/nginx.config > tmp
-	mv -- tmp riot/nginx.conf/docker-compose.yml
 	$(DOCKER_COMPOSE_INIT) down
 
 up: image
