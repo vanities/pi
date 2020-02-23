@@ -4,4 +4,5 @@ pihole/etc-dnsmasq.d
 pihole/etc-pihole
 
 certs
+keys.pem
 
