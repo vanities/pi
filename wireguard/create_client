@@ -1,5 +1,12 @@
 #!/bin/bash
 
+wg-quick down wg0
+DIR=/etc/wireguard
 NAME=$1
+PATH=$DIR$NAME
 
-wg genkey | tee $(NAME)_privatekey | wg pubkey > $(NAME)_publickey
+wg genkey | tee $(PATH)_privatekey | wg pubkey > $(PATH)_publickey
+
+
+qrencode -t ansiutf8 < $(PATH).conf
+wg-quick up wg0

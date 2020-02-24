@@ -5,4 +5,6 @@ pihole/etc-pihole
 
 certs
 keys.pem
+**/*.key
+**/*.conf
 

@@ -1,0 +1,16 @@
+version: '3'
+services:
+  traefik:
+    image: traefik:alpine
+    volumes:
+    - /apps/docker/traefik/traefik.toml:/traefik.toml:ro
+    - /apps/docker/traefik/acme:/etc/traefik/acme
+    - /var/log/traefik:/var/log
+    ports:
+    - 8080:8080/tcp
+    - 80:80/tcp
+    - 443:443/tcp
+    command:
+    - --web
+    - --accessLog.filePath=/var/log/access.log
+    - --accessLog.filters.statusCodes=400-499
