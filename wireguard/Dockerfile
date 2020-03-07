@@ -1,22 +1,18 @@
 FROM alpine:latest
 
-RUN apk add wireguard-lts wireguard-tools-wg
+RUN apk update && \
+    apk upgrade && \
+    apk add wireguard-lts wireguard-tools-wg wireguard-tools bash
 
-# Add main work dir to PATH
-#WORKDIR /scripts
-#ENV PATH="/scripts:${PATH}"
+# Use iptables masquerade NAT rule
+#ENV IPTABLES_MASQ=1
+#iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 # Use iptables masquerade NAT rule
 #ENV IPTABLES_MASQ=1
 
-# Copy scripts to containers
-#COPY install-module /scripts
-#COPY run /scripts
-#COPY genkeys /scripts
-#RUN chmod 755 /scripts/*
 
-# Wirguard interface configs go in /etc/wireguard
-#VOLUME /etc/wireguard
+COPY start /start
 
 # Normal behavior is just to run wireguard with existing configs
-#CMD ["run"]
+CMD ["./start"]

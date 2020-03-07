@@ -4,6 +4,12 @@ services:
   wireguard:
     container_name: wireguard
     build: .
+    ports:
+      - "51820:51820/udp"
     volumes:
       - "./etc-wireguard:/etc/wireguard/"
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
     restart: unless-stopped
+    privileged: true
