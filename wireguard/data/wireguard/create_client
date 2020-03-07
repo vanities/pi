@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+NAME=$1
+
+wg pubkey > client_$NAME_public.key
+wg pubkey > client_$NAME_public.key < client_$NAME_private.key
+
+printf "
+[Peer]
+#Client2
+PublicKey = <client2_public.key>
+AllowedIPs = 192.168.99.2/32

@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  unbound:
+    container_name: unbound
+    # https://hub.docker.com/r/klutchell/unbound
+    image: klutchell/unbound
+    ports:
+      - "5053:5053/tcp"
+      - "5053:5053/udp"
+    restart: unless-stopped

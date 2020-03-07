@@ -1,0 +1,4 @@
+# updates dns for my router
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
+
+1,6,11,16,21,26,31,36,41,46,51,56 * * * * sleep 18 ; wget --no-check-certificate -O - https://freedns.afraid.org/dynamic/update.php?bG5kS2NQMG1mdmlxNWROd0xyT1Y3ZGNQOjE4OTQzMjE5 >> /tmp/freedns_snailedit_mooo_com.log 2>&1 &
