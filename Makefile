@@ -6,6 +6,7 @@ DOCKER_PATH = docker-compose.yml
 
 # apps
 PI_HOLE := pihole/$(DOCKER_PATH)
+UNBOUND := unbound/$(DOCKER_PATH)
 WIREGUARD := wireguard/$(DOCKER_PATH)
 
 # someday.. when arm works
@@ -13,8 +14,9 @@ SUBSPACE := wireguard/subspace/$(DOCKER_PATH)
 WIREGUARD_UI := wireguard/ui/$(DOCKER_PATH)
 
 DOCKER_COMPOSE = docker-compose \
+				 --file $(WIREGUARD) \
+				 #--file $(UNBOUND) \
 				 --file $(PI_HOLE) \
-				 --file $(WIREGUARD)
 
 # env vars
 PIHOLE_WEB_PASSWORD ?= password
@@ -26,8 +28,8 @@ new: ufw up
 image:
 	$(DOCKER_COMPOSE) build
 
-shell:
-	 ssh -i $(EC2_PRIVATE_KEY_PATH) $(EC2_URL)
+bash:
+	$(DOCKER_COMPOSE) run --rm wireguard ash
 
 up: image
 	$(DOCKER_COMPOSE) up

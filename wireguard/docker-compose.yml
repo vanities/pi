@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  wireguard:
+    container_name: wireguard
+    build: .
+    volumes:
+      - "./etc-wireguard:/etc/wireguard/"
+    restart: unless-stopped

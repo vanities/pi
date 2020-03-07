@@ -3,6 +3,10 @@ pihole/schemas
 pihole/etc-dnsmasq.d
 pihole/etc-pihole
 
+unbound/etc-unbound
+
+wireguard/etc-wireguard
+
 certs
 keys.pem
 **/*.key

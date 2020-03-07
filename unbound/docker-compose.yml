@@ -8,4 +8,6 @@ services:
     ports:
       - "5353:5053/tcp"
       - "5353:5053/udp"
+    volumes:
+      - "./etc-unbound/:/etc/unbound/"
     restart: unless-stopped
