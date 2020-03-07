@@ -1,6 +1,9 @@
 version: "3"
 
-# More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
+# More info at:
+# https://github.com/pi-hole/docker-pi-hole/
+# https://hub.docker.com/r/pihole/pihole
+# https://docs.pi-hole.net/
 services:
   pihole:
     container_name: pihole
@@ -12,13 +15,11 @@ services:
       - "80:80/tcp" # http
       - "443:443/tcp" # https
     environment:
-      TZ: 'America/Chicago'
+      TZ: ${PIHOLE_TIMEZONE}
       DNS1: "127.0.0.1:5053" # unbound
       DNS2: "127.0.0.1:5053"
       ServerIP: "192.168.1.27"
-      WEBPASSWORD: password
-      # WEBPASSWORD: 'set a secure password here or it will be random'
-    # Volumes store your data between container upgrades
+      WEBPASSWORD: ${PIHOLE_WEB_PASSWORD} # random if not set
     volumes:
        - './etc-pihole/:/etc/pihole/'
        - './etc-dnsmasq.d/:/etc/dnsmasq.d/'

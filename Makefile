@@ -16,6 +16,11 @@ DOCKER_COMPOSE = docker-compose \
 				 --file $(PI_HOLE) \
 				 --file $(WIREGUARD)
 
+# env vars
+PIHOLE_WEB_PASSWORD ?= password
+PIHOLE_TIMEZONE ?= America/Chicago
+
+
 new: ufw up
 
 image:

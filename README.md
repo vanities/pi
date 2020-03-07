@@ -13,8 +13,8 @@ just pi things... this repo composes many pi services together for easy deployme
 
 set the environment vars
 
-- WEB_URL
-- RIOT_POSTGRESS_PASSOWRD
+- PIHOLE_WEB_PASSWORD
+- PIHOLE_TIMEZONE
 
 
 ## Components
