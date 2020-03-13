@@ -9,6 +9,12 @@ just pi things... this repo composes many pi services together for easy deployme
 - highly configurable make for service configuration
 
 
+## Pi Setup
+
+- go [to NOOBS website](https://www.raspberrypi.org/downloads/noobs/) and download NOOBS (not lite)
+- [download etcher](https://www.balena.io/etcher/)
+- burn your usb/sd card with the NOOBS image
+
 ## Setup
 
 set the environment vars
