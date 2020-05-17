@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo ufw allow ssh
+sudo ufw allow 7777/tcp
