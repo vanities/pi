@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+
+  terraria:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - world=Lordran.wld
+    volumes:
+      - /home/pi/terraria/config:/config
+    working_dir: /vanilla
+    ports:
+      - 7777:7777
+    tty: true
+    command: mono --server --gc=sgen -O=all TerrariaServer.exe -config /config/serverconfig.txt

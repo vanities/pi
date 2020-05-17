@@ -40,4 +40,8 @@ release: image
 down: 
 	 $(DOCKER_COMPOSE) down
 
+install_terraria:
+	./terraria/bin/install
+
+
 default: image

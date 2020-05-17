@@ -1,0 +1,14 @@
+[Unit]
+Description=server daemon for terraria
+
+[Service]
+Type=forking
+User=pi
+KillMode=none
+WorkingDirectory=/home/pi/terraria
+ExecStart=/usr/bin/tmux new-session -d -s terraria '/usr/local/bin/docker-compose up'
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
