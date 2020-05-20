@@ -1,0 +1,10 @@
+[Unit]
+Description=reboot terraria server daily @ 3:00:00
+After=multi-user.target
+
+[Service]
+User=root
+ExecStart=reboot now
+
+[Install]
+WantedBy=multi-user.target

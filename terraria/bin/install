@@ -1,6 +1,9 @@
 #!/bin/bash
 sudo cp terraria/bin/terraria /usr/local/bin
-sudo cp services/terraria-server.service /etc/systemd/system
+sudo cp services/* /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl start terraria-server.service
 sudo systemctl enable terraria-server.service
+
+sudo systemctl enable terraria-reboot.timer
+sudo systemctl enable terraria-backup.timer

@@ -1,0 +1,8 @@
+[Unit]
+Description=reboot terraria server daily @ 3:00:00
+
+[Timer]
+OnCalendar=*-*-* 03:00:00
+
+[Install]
+WantedBy=multi-user.target

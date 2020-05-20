@@ -1,0 +1,10 @@
+[Unit]
+Description=backup terraria server every hour
+After=multi-user.target
+
+[Service]
+User=root
+ExecStart=/bin/cp /home/pi/terraria/config/*.wld /home/pi/terraria/config/backups
+
+[Install]
+WantedBy=multi-user.target
