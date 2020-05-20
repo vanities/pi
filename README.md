@@ -30,7 +30,8 @@ set the environment vars
 - pihole - network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole, can also be used as a DHCP server
 - unbound - validating, recursive, and caching DNS resolver 
 - wireguard - protocol that implements virtual private network (VPN) techniques to create secure point-to-point connections
-
+- terraria - fun 2d side-scroller platformer, hosts as vanilla server
+ 
 ### Security
 
 - ufw - managing a netfilter firewall designed to be easy to use
