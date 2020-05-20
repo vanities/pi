@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 User=root
-ExecStart=/bin/cp /home/pi/terraria/config/*.wld /home/pi/terraria/config/backups
+ExecStart=/bin/cp -r /home/pi/terraria/config/ /home/pi/terraria/backups
 
 [Install]
 WantedBy=multi-user.target
