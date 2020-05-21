@@ -8,8 +8,8 @@ services:
       dockerfile: ./Dockerfile
     environment:
       - world=Lordran.wld
-    working_dir: /terraria/tshock
-    #working_dir: /terraria/vanilla
+    #working_dir: /terraria/tshock
+    working_dir: /terraria/vanilla
     volumes:
       - ./:/config
     ports:
